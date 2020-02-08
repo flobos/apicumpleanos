@@ -23,7 +23,7 @@ public class Persona {
 
     @NotNull
     @Temporal(TemporalType.DATE)
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date fechaNacimiento;
     private int edad;
 
@@ -31,6 +31,12 @@ public class Persona {
     private String mensaje;
 
     public Persona() {
+    }
+
+    public Persona(@NotBlank(message = "Nombre es requerido") String nombre, @NotBlank(message = "apellido es requerido") String apellido, @NotNull Date fechaNacimiento) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public long getId() {

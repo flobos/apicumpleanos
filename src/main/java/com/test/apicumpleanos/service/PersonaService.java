@@ -24,8 +24,12 @@ public class PersonaService {
         int edad = utiles.calculaEdad(persona.getFechaNacimiento());
         persona.setEdad(edad);
 
-        for (final Poema p : obtienePoema()) {
-            persona.setMensaje(p.getContent());
+
+        if (utiles.esCumpleanos(persona.getFechaNacimiento())) {
+            for (final Poema p : obtienePoema()) {
+                persona.setMensaje(p.getContent());
+            }
+
         }
         return personaRepository.save(persona);
 
@@ -37,7 +41,6 @@ public class PersonaService {
     {
 
         RestTemplate restTemplate = new RestTemplate();
-
 
         return restTemplate.getForObject(URI_POEMS, Poema[].class);
 
