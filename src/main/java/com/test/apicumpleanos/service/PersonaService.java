@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.text.ParseException;
 import java.util.List;
 
 @Service
@@ -21,7 +22,7 @@ public class PersonaService {
     @Autowired
     private Utiles utiles;
 
-    public Persona guardaPersona(Persona persona){
+    public Persona guardaPersona(Persona persona) throws ParseException {
 
         int edad = utiles.calculaEdad(persona.getFechaNacimiento());
         persona.setEdad(edad);

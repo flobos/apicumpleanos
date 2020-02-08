@@ -2,8 +2,11 @@ package com.test.apicumpleanos.util;
 
 import org.springframework.stereotype.Component;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -22,13 +25,18 @@ public class Utiles {
         return periodo.getYears();
     }
 
-    public Boolean esCumpleanos(Date fecha){
+    public Boolean esCumpleanos(Date fecha) throws ParseException {
 
-        Calendar calendar = new GregorianCalendar();
-        calendar.setTime(fecha);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+
+
+        LocalDate localDate = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+
+
         LocalDate hoy = LocalDate.now();
 
-        if (hoy.getMonthValue() == calendar.get(Calendar.MONTH) && hoy.getDayOfMonth() == calendar.get(Calendar.DAY_OF_MONTH)){
+        if (hoy.getMonthValue() == localDate.getMonthValue() && hoy.getDayOfMonth() == (localDate.getDayOfMonth() + 1)  ){
 
             return true;
         }

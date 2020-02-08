@@ -23,7 +23,7 @@ public class Persona {
 
     @NotNull
     @Temporal(TemporalType.DATE)
-    @JsonFormat(pattern="yyyy-MM-dd")
+ //   @JsonFormat(pattern="yyyy-MM-dd")
     private Date fechaNacimiento;
     private int edad;
 
