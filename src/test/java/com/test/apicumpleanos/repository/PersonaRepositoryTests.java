@@ -1,4 +1,4 @@
-package com.test.apicumpleanos;
+package com.test.apicumpleanos.repository;
 
 import com.test.apicumpleanos.domain.Persona;
 import com.test.apicumpleanos.repository.PersonaRepository;

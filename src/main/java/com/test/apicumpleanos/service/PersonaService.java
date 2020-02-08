@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 @Service
 public class PersonaService {
 
@@ -32,6 +34,13 @@ public class PersonaService {
 
         }
         return personaRepository.save(persona);
+
+    }
+
+    public List<Persona> todasPersona(){
+
+
+        return personaRepository.findAll();
 
     }
 
