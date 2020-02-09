@@ -27,7 +27,7 @@ public class Persona {
     private Date fechaNacimiento;
     private int edad;
 
-    @Column(length = 2000)
+    @Column(length = 3000)
     private String mensaje;
 
     public Persona() {

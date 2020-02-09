@@ -28,19 +28,11 @@ public class Utiles {
     public Boolean esCumpleanos(Date fecha) throws ParseException {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-
-
         LocalDate localDate = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
-
-
         LocalDate hoy = LocalDate.now();
-
         if (hoy.getMonthValue() == localDate.getMonthValue() && hoy.getDayOfMonth() == (localDate.getDayOfMonth() + 1)  ){
-
             return true;
         }
-
         return false;
     }
 
